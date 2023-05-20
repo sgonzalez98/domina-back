@@ -24,7 +24,46 @@
 
 ## Description
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+Prueba de domina, serivicio backend
+
+Este servicio esta hecho en NestJs, el cual es un framework de NodeJs, que nos brinda unos patrones y arquitectura ya lista para trabajar de la mejor forma en Node, El proyecto esta hecho todo en TypeScript, minimizando los errores de ejecución y tipando todos los elementos.
+
+Adicional a este se iba a realizar un proyecto limpio, en express, pero debido al tiempo no se pudo agregar
+
+## Funcionalidades
+
+El proyecto esta realizado sobre la ultima version de nestJs, trabajando con una DB NOSQL en MongoDB
+Se realiza modulo de autenticación con Jwt y Passport
+Se crea documentacion de las Apis con Swagger
+Se realiza validacion de variables de entorno(.env)
+Se realiza validacion de request mediante class-validator
+Se realiza proteccion de rutas protegidas (Jwt-Guard)
+El codigo se separo de forma entendible y de facil lectura
+Para el trabajo de MongoBd, se uso Mongoose
+
+Para ver la documentacion de Swagger de las rutas se puede dirigir a la siguiente url
+https://domina-test.onrender.com/docs
+o localmente a
+http://localhost:3001/docs
+En esta pagina podra visualizar todos los endpoints que pueden ser consumidos y la forma de hacerlo
+
+Se realizan Schemas de MongoDB, con las dos tablas resultantes
+
+### Usuario (table)
+
+- name
+- username
+- email
+- phone
+- password
+
+### Todo (table)
+
+- user_id
+- todo
+- isCompleted
+
+Estas son las dos tablas resultantes para el proceso.
 
 ## Installation
 
@@ -34,16 +73,30 @@ $ npm install
 
 ## Running the app
 
+Hay dos formas de iniciar la aplicación, la primera es con docker, la cual ya esta completamente preparada y lista, para montar el servicio de Backend y el servicio de MongoDB, mediante el comando proporcinado en el MakeFile
+
+```bash
+$ make dev
+# or
+docker-compose up -d --build
+```
+
+En caso de no querer montar mediante docker, debe tener una instancia de Mongo lista para conectarse y ejecutar el siguiente comando
+
 ```bash
 # development
 $ npm run start
-
-# watch mode
-$ npm run start:dev
-
-# production mode
-$ npm run start:prod
 ```
+
+# Enviroment
+
+Se tiene preparado un .env listo para funcionar, solo es necesario copiar el archivo .env.example y guardarlo como .env para su funcionamiento
+
+# TODO:
+
+Hay varias novedades que se debeb mejorar ya que no pude hacerlas en el tiempo de la prueba
+
+- Proteger todas las rutas, de forma global y crear un decorador para las rutas publicas, esto con el fin de no repertir el mismo codigo
 
 ## License
 
